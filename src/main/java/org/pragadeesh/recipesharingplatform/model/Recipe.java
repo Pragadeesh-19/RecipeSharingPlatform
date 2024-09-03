@@ -26,7 +26,7 @@ public class Recipe {
     private LocalDateTime localDateTime;
 
     @ManyToOne
-    @JoinColumn(name = "chef_id", nullable = false)
+    @JoinColumn(name = "chefId", nullable = false)
     private User chef;
 
     private String imageUrl;
