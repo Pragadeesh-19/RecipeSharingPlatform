@@ -1,5 +1,7 @@
 package org.pragadeesh.recipesharingplatform.service;
 
+import org.pragadeesh.recipesharingplatform.dto.UserDto;
+import org.pragadeesh.recipesharingplatform.model.JwtRequest;
 import org.pragadeesh.recipesharingplatform.model.JwtResponse;
 import org.pragadeesh.recipesharingplatform.model.User;
 import org.pragadeesh.recipesharingplatform.repository.UserRepository;
@@ -26,7 +28,7 @@ public class AuthenticationService {
         this.jwtUtil = jwtUtil;
     }
 
-    public String register(User request) {
+    public String register(UserDto request) {
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
@@ -38,7 +40,7 @@ public class AuthenticationService {
         return "User registered successfully";
     }
 
-    public JwtResponse login(User request){
+    public JwtResponse login(JwtRequest request){
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getUsername(),
